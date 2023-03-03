@@ -5,6 +5,7 @@
  */
 package co.edu.poli.servelet;
 
+import co.edu.poli.dto.Persona;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,11 +33,14 @@ public class serveletPersona extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            Persona persona = new Persona();
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String edad = request.getParameter("edad");
             int edad1 = Integer.parseInt(edad);
-            
+            persona.setApellido(apellido);
+            persona.setNombre(nombre);
+            persona.setEdad(edad1);
             
             if ( edad1 >= 18 ) {
                 out.println("<!DOCTYPE html>");
@@ -46,8 +50,8 @@ public class serveletPersona extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1><b>Acceso permitido</b></h1>");
-                out.println("<h2>El nombre de la persona es: " + nombre + "</h2>");
-                out.println("<h2>El contraseña de la persona es: " + apellido + "</h2>");
+                out.println("<h2>El nombre de la persona es: " + persona.getNombre() + "</h2>");
+                out.println("<h2>El contraseña de la persona es: " + persona.getApellido() + "</h2>");
                 out.println("</body>");
                 out.println("</html>");
             }else{
@@ -58,10 +62,10 @@ public class serveletPersona extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1><b>Acceso denegado, eres menor de la edad permitida</b></h1>");
-                out.println("<h2>El nombre de la persona es: " + nombre + "</h2>");
-                out.println("<h2>El contraseña de la persona es: " + apellido + "</h2>");
+                out.println("<h2>El nombre de la persona es: " + persona.getNombre() + "</h2>");
+                out.println("<h2>El contraseña de la persona es: " + persona.getApellido() + "</h2>");
                 out.println("</body>");
-            out.println("</html>");
+                out.println("</html>");
             }
             
             
