@@ -5,6 +5,8 @@
  */
 package co.edu.poli.Controller;
 
+import co.edu.poli.DTO.Proveedor;
+import co.edu.poli.Modelo.DAOProveedor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,16 +33,25 @@ public class ctrlProveedor extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ctrlProveedor</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ctrlProveedor at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            double precioCompra = Double.parseDouble(request.getParameter("precioCompra"));
+            String nombreProveedor = request.getParameter("nombreProveedor");
+            String nombreProducto = request.getParameter("nombreProducto");
+            String codigoProducto = request.getParameter("codigoProducto");
+            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+            
+            Proveedor proveedor = new Proveedor();
+            DAOProveedor daoproveedor = new DAOProveedor();
+            
+            proveedor.setPrecioCompra(precioCompra);
+            proveedor.setNombreProveedor(nombreProveedor);
+            proveedor.setNombreProducto(nombreProducto);
+            proveedor.setCodigoProducto(codigoProducto);
+            proveedor.setCantidad(cantidad);
+            
+            daoproveedor.createProveedor(proveedor);
+            request.setAttribute("proveedor", proveedor);
+            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
         }
     }
 

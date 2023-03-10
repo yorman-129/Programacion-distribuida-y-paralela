@@ -5,6 +5,8 @@
  */
 package co.edu.poli.Controller;
 
+import co.edu.poli.DTO.PersonaTrabajador;
+import co.edu.poli.Modelo.DAOpersonaTrabajador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,16 +33,31 @@ public class ctrlPersonaTrabajador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ctrlPersonaTrabajador</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ctrlPersonaTrabajador at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            int cedula = Integer.parseInt(request.getParameter("cedula"));
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String direccion = request.getParameter("direccion");
+            String fechaIngreso = request.getParameter("fechaIngreso");
+            String cargo = request.getParameter("cargo");
+            double salario = Double.parseDouble(request.getParameter("salario"));
+            
+            
+            PersonaTrabajador dtoPersonalTrabajador = new PersonaTrabajador();
+            DAOpersonaTrabajador daoPersonaTrabajador = new DAOpersonaTrabajador();
+            
+            dtoPersonalTrabajador.setNombre(nombre);
+            dtoPersonalTrabajador.setApellido(apellido);
+            dtoPersonalTrabajador.setCedula(cedula);
+            dtoPersonalTrabajador.setFechaIngreso(fechaIngreso);
+            dtoPersonalTrabajador.setDireccion(direccion);
+            dtoPersonalTrabajador.setCargo(cargo);
+            dtoPersonalTrabajador.setSalario(salario);
+
+            
+            daoPersonaTrabajador.createpersonaTrabajador(dtoPersonalTrabajador);
+            request.setAttribute("dtoPersonalCliente", dtoPersonalTrabajador);
+            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
         }
     }
 

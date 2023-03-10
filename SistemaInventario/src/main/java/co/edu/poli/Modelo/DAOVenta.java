@@ -12,18 +12,18 @@ import co.edu.poli.DTO.Venta;
  * @author Estiv
  */
 public class DAOVenta {
-    public boolean createComputador(Venta venta){
+    public boolean createVenta(Venta venta){
         return true;
     }
     
-    public boolean deleteComputador(Venta venta){
+    public boolean deleteVenta(Venta venta){
         return true;
     }
     
-    public Venta updateComputador(Venta venta){
+    public Venta updateVenta(Venta venta){
         return venta;
     }
-    public Venta leerComputador(Venta venta){
+    public Venta leerVenta(Venta venta){
         return venta;
     }
 }

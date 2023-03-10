@@ -12,18 +12,18 @@ import co.edu.poli.DTO.PersonaTrabajador;
  * @author Estiv
  */
 public class DAOpersonaTrabajador {
-   public boolean createComputador(PersonaTrabajador personaTrabajador){
+   public boolean createpersonaTrabajador(PersonaTrabajador personaTrabajador){
         return true;
     }
     
-    public boolean deleteComputador(PersonaTrabajador personaTrabajador){
+    public boolean deletepersonaTrabajador(PersonaTrabajador personaTrabajador){
         return true;
     }
     
-    public PersonaTrabajador updateComputador(PersonaTrabajador personaTrabajador){
+    public PersonaTrabajador updatepersonaTrabajador(PersonaTrabajador personaTrabajador){
         return personaTrabajador;
     }
-    public PersonaTrabajador leerComputador(PersonaTrabajador personaTrabajador){
+    public PersonaTrabajador leerpersonaTrabajador(PersonaTrabajador personaTrabajador){
         return personaTrabajador;
     }
 }

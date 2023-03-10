@@ -5,6 +5,8 @@
  */
 package co.edu.poli.Controller;
 
+import co.edu.poli.DTO.Venta;
+import co.edu.poli.Modelo.DAOVenta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,16 +33,27 @@ public class ctrlVentas extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ctrlVentas</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ctrlVentas at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            String codigoVenta = request.getParameter("codigoVenta");
+            String nombreProducto = request.getParameter("nombreProducto");
+            String codigoProducto = request.getParameter("codigoProducto");
+            String fechaSalida = request.getParameter("fechaSalida");
+            int cantidad = Integer.parseInt(request.getParameter("Cantidad"));
+            double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
+            
+            Venta venta = new Venta();
+            DAOVenta daoventa = new DAOVenta();
+            
+            venta.setCodigoVenta(codigoVenta);
+            venta.setNombreProducto(nombreProducto);
+            venta.setCodigoProducto(codigoProducto);
+            venta.setFechaSalida(fechaSalida);
+            venta.setCantidad(cantidad);
+            venta.setPrecioVenta(precioVenta);
+            
+            daoventa.createVenta(venta);
+            request.setAttribute("venta", venta);
+            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
         }
     }
 

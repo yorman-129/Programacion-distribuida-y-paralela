@@ -5,6 +5,8 @@
  */
 package co.edu.poli.Controller;
 
+import co.edu.poli.DTO.Producto;
+import co.edu.poli.Modelo.DAOProducto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,16 +33,30 @@ public class ctrlProducto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ctrlProducto</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ctrlProducto at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+              String nombre = request.getParameter("nombre");
+            String tipo = request.getParameter("tipo");
+            String marca = request.getParameter("marca");
+            String modelo = request.getParameter("modelo");
+            String caracteristicas = request.getParameter("caracteristicas");
+            String fechaIngreso = request.getParameter("fechaIngreso");
+            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+            int precio = Integer.parseInt(request.getParameter("precio"));
+            
+            Producto dtoProducto = new Producto();
+            DAOProducto daoProducto = new DAOProducto();
+            
+            dtoProducto.setNombre(nombre);
+            dtoProducto.setTipo(tipo);
+            dtoProducto.setMarca(marca);
+            dtoProducto.setModelo(modelo);
+            dtoProducto.setCaracteristicas(caracteristicas);
+            dtoProducto.setFechaIngreso(fechaIngreso);
+            dtoProducto.setCantidad(cantidad);
+            dtoProducto.setPrecio(precio);
+            
+            daoProducto.createProducto(dtoProducto);
+            request.setAttribute("dtoProducto", dtoProducto);
+            request.getRequestDispatcher("mostrarProducto.jsp").forward(request, response);
         }
     }
 

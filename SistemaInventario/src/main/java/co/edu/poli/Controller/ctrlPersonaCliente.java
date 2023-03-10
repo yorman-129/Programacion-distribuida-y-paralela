@@ -5,6 +5,8 @@
  */
 package co.edu.poli.Controller;
 
+import co.edu.poli.DTO.PersonaCliente;
+import co.edu.poli.Modelo.DAOPersonaCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,16 +33,27 @@ public class ctrlPersonaCliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ctrlPersonaCliente</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ctrlPersonaCliente at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            int cedula = Integer.parseInt(request.getParameter("cedula"));
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String celular = request.getParameter("celular");
+            String direccion = request.getParameter("direccion");
+            
+            
+            PersonaCliente dtoPersonalCliente = new PersonaCliente();
+            DAOPersonaCliente daoPersonalCliente = new DAOPersonaCliente();
+            
+            dtoPersonalCliente.setNombre(nombre);
+            dtoPersonalCliente.setApellido(apellido);
+            dtoPersonalCliente.setCedula(cedula);
+            dtoPersonalCliente.setCelular(celular);
+            dtoPersonalCliente.setDireccion(direccion);
+            
+            daoPersonalCliente.createPersonaCliente(dtoPersonalCliente);
+            request.setAttribute("dtoPersonalCliente", dtoPersonalCliente);
+            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
+            
         }
     }
 
