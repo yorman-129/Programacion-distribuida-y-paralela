@@ -1,6 +1,6 @@
 <%-- 
-    Document   : newjsp
-    Created on : 3/03/2023, 03:09:51 PM
+    Document   : newjsp1
+    Created on : 3/03/2023, 05:38:23 PM
     Author     : Estiv
 --%>
 
@@ -12,10 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
-        <h1>Hello World 2!</h1>
-        <%= "welcome jsp" %>
-        <=% int numero=0; %>
-        <=% out.print(2); %>
+        <h1>Hello World!</h1>
     </body>
 </html>

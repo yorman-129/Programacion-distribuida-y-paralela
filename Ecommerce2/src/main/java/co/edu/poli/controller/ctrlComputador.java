@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.poli.servelet;
+package co.edu.poli.controller;
 
-import co.edu.poli.dto.Persona;
+import co.edu.poli.DTO.DTOComputador;
+import co.edu.poli.modelo.DAOComputador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Estiv
  */
-public class serveletPersona extends HttpServlet {
+public class ctrlComputador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,49 +32,27 @@ public class serveletPersona extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            Persona persona = new Persona();
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            String edad = request.getParameter("edad");
-         
-            int edad1 = Integer.parseInt(edad);
-            persona.setApellido(apellido);
-            persona.setNombre(nombre);
-            persona.setEdad(edad1);
             
-            if ( edad1 >= 18 ) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Persona Activada</title>");            
-                out.println("</head>");
-                out.println("<body>");
-               /* out.println("<h1><b>Acceso permitido</b></h1>");
-                out.println("<h2>El nombre de la persona es: " + persona.getNombre() + "</h2>");
-                out.println("<h2>El contraseña de la persona es: " + persona.getApellido() + "</h2>");
-                out.println("</body>");
-                out.println("</html>");
-                
-            */
-               request.getRequestDispatcher("newjsp.jsp").forward(request, response);
-            }else{
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Persona inactiva</title>");            
-                out.println("</head>");
-                out.println("<body>");
-              /*  out.println("<h1><b>Acceso denegado, eres menor de la edad permitida</b></h1>");
-                out.println("<h2>El nombre de la persona es: " + persona.getNombre() + "</h2>");
-                out.println("<h2>El contraseña de la persona es: " + persona.getApellido() + "</h2>");
-                out.println("</body>");
-                out.println("</html>");*/
-              request.getRequestDispatcher("newjsp1.jsp").forward(request, response);
-            }
+            double velocidad = Double.parseDouble(request.getParameter("velocidad"));
+            String marca = request.getParameter("marca");
+            String modelo = request.getParameter("modelo");
+            double ram = Double.parseDouble(request.getParameter("ram"));
             
+            DTOComputador dtoComputador = new DTOComputador();
+            DAOComputador daoComputador = new DAOComputador();
             
+            dtoComputador.setVelocidad(velocidad);
+            dtoComputador.setMarca(marca);
+            dtoComputador.setRam(ram);
+            dtoComputador.setModelo(modelo);
+            
+            daoComputador.createComputador(dtoComputador);
+            request.setAttribute("dtoComputador", dtoComputador);
+            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
+            
+
         }
     }
 
