@@ -52,7 +52,7 @@ public class ctrlPersonaCliente extends HttpServlet {
             
             daoPersonalCliente.createPersonaCliente(dtoPersonalCliente);
             request.setAttribute("dtoPersonalCliente", dtoPersonalCliente);
-            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
+            request.getRequestDispatcher("personaCliente.jsp").forward(request, response);
             
         }
     }
