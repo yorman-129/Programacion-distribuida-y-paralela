@@ -56,7 +56,7 @@ public class ctrlProducto extends HttpServlet {
             
             daoProducto.createProducto(dtoProducto);
             request.setAttribute("dtoProducto", dtoProducto);
-            request.getRequestDispatcher("mostrarProducto.jsp").forward(request, response);
+            request.getRequestDispatcher("producto.jsp").forward(request, response);
         }
     }
 

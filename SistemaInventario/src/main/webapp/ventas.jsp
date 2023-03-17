@@ -1,22 +1,21 @@
-<%-- 
-    Document   : personaCliente
-    Created on : 17/03/2023, 01:35:43 PM
-    Author     : Estiv
---%>
-
-
-<%@page import="co.edu.poli.DTO.PersonaCliente"%>
-<%@page import="co.edu.poli.Controller.ctrlPersonaCliente" %>
+<%@page import="co.edu.poli.DTO.Venta"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Ventas</title>
     </head>
     <body>
-        <%PersonaCliente personacliente = (PersonaCliente)request.getAttribute("dtoPersonalCliente");
-        out.println("<h1> Marca:" + personacliente.getNombre() + "</h1>");
+        
+        <% Venta venta = (Venta)request.getAttribute("venta");
+         out.println("<h1> codigoVenta" + venta.getCodigoVenta() + "</h1>");
+        out.println("<h1> nombreProducto" + venta.getNombreProducto() + "</h1>");
+        out.println("<h1> codigoProducto" + venta.getCodigoProducto() + "</h1>");
+        out.println("<h1> cantidad" + venta.getCantidad() + "</h1>");
+        out.println("<h1> precioVenta" + venta.getPrecioVenta() + "</h1>");
+        out.println("<h1> fechaSalida" + venta.getFechaSalida());
         %>
     </body>
 </html>

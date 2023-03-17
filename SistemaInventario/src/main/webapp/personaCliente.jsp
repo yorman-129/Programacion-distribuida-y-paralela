@@ -16,7 +16,7 @@
     </head>
     <body>
         <%PersonaCliente personacliente = (PersonaCliente)request.getAttribute("dtoPersonalCliente");
-        out.println("<h1> Marca:" + personacliente.getNombre() + "</h1>");
+        out.println("<h2> Nombre Cliente" + personacliente.getNombre() + "<br>" + personacliente.getApellido() + "</h2>");
         %>
     </body>
 </html>

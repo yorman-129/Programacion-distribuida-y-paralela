@@ -5,18 +5,19 @@
 --%>
 
 
-<%@page import="co.edu.poli.DTO.PersonaCliente"%>
-<%@page import="co.edu.poli.Controller.ctrlPersonaCliente" %>
+<%@page import="co.edu.poli.DTO.Proveedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Pedido</title>
     </head>
     <body>
-        <%PersonaCliente personacliente = (PersonaCliente)request.getAttribute("dtoPersonalCliente");
-        out.println("<h1> Marca:" + personacliente.getNombre() + "</h1>");
+        
+        <% Proveedor proveedor = (Proveedor)request.getAttribute("proveedor");
+        out.println("<h1> Proveedor" + proveedor.getNombreProveedor()+ "nombre Producto:" + proveedor.getNombreProducto()+ "</h1>");
         %>
     </body>
 </html>

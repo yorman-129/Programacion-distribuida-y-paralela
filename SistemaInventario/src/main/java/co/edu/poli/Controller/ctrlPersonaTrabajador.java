@@ -56,8 +56,8 @@ public class ctrlPersonaTrabajador extends HttpServlet {
 
             
             daoPersonaTrabajador.createpersonaTrabajador(dtoPersonalTrabajador);
-            request.setAttribute("dtoPersonalCliente", dtoPersonalTrabajador);
-            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
+            request.setAttribute("personatrabajador", dtoPersonalTrabajador);
+            request.getRequestDispatcher("personaTrabajador.jsp").forward(request, response);
         }
     }
 

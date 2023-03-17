@@ -1,12 +1,5 @@
-<%-- 
-    Document   : personaCliente
-    Created on : 17/03/2023, 01:35:43 PM
-    Author     : Estiv
---%>
-
-
-<%@page import="co.edu.poli.DTO.PersonaCliente"%>
-<%@page import="co.edu.poli.Controller.ctrlPersonaCliente" %>
+<%@page import="co.edu.poli.DTO.Producto"%>
+<%@page import="co.edu.poli.Controller.ctrlProducto" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,8 +8,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%PersonaCliente personacliente = (PersonaCliente)request.getAttribute("dtoPersonalCliente");
-        out.println("<h1> Marca:" + personacliente.getNombre() + "</h1>");
+<%Producto producto = (Producto)request.getAttribute("dtoProducto");
+        out.println("<h1> Nombre" + producto.getNombre() + "</h1>");
+        out.println("<h1> Tipo" + producto.getTipo() + "</h1>");
+        out.println("<h1> Marca" + producto.getMarca() + "</h1>");
+        out.println("<h1> Cantidad" + producto.getCantidad() + "</h1>");
+        out.println("<h1> Precio" + producto.getPrecio() + "</h1>");
         %>
     </body>
 </html>
+

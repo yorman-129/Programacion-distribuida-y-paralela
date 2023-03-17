@@ -51,7 +51,7 @@ public class ctrlProveedor extends HttpServlet {
             
             daoproveedor.createProveedor(proveedor);
             request.setAttribute("proveedor", proveedor);
-            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
+            request.getRequestDispatcher("proveedor.jsp").forward(request, response);
         }
     }
 

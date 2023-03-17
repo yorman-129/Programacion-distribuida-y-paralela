@@ -29,38 +29,56 @@
             </form><br>
         
             <h1>Persona trabajador</h1>
-        <form  method="get" action="/SistemaInventario/ctrlProducto">
-                    <p>velocidad 
-                        <input type="number" name="velocidad">
+        <form  method="get" action="/SistemaInventario/ctrlPersonaTrabajador">
+                    <p>nombre 
+                        <input type="text" name="nombre">
                     </p>
-                    <p>marca 
-                        <input type="text" name="marca">
+                    <p>apellido 
+                        <input type="text" name="apellido">
                     </p>
-                    <p>modelo 
-                        <input type="text" name="modelo">
+                    <p>cedula 
+                        <input type="number" name="cedula">
                     </p>
-                    <p>ram 
-                        <input type="number" name="ram" >
+                    <p>direccion 
+                        <input type="text" name="direccion" >
                     </p>
+                    <p>cargo 
+                        <input type="text" name="cargo" >
+                    </p>
+                    <p>salario 
+                        <input type="number" name="salario" >
+                    </p>
+                    
             
-                      
                       <input type="submit" value="Enviar">
                       <input type="reset" value="Borrar">
             </form><br>
         
             <h1>Producto</h1>
-        <form  method="get" action="/SistemaInventario/ctrlPersonaCliente">
-                    <p>velocidad 
-                        <input type="number" name="velocidad">
+        <form  method="get" action="/SistemaInventario/ctrlProducto">
+                    <p>nombre 
+                        <input type="text" name="nombre">
+                    </p>
+                    <p>tipo 
+                        <input type="text" name="tipo">
                     </p>
                     <p>marca 
                         <input type="text" name="marca">
                     </p>
                     <p>modelo 
-                        <input type="text" name="modelo">
+                        <input type="number" name="modelo" >
                     </p>
-                    <p>ram 
-                        <input type="number" name="ram" >
+                    <p>cantidad 
+                        <input type="number" name="cantidad" >
+                    </p>
+                    <p>precio 
+                        <input type="number" name="precio" >
+                    </p>
+                    <p>caracteristicas 
+                        <input type="text" name="caracteristicas">
+                    </p>
+                    <p>fechaIngreso 
+                        <input type="date" name="fechaIngreso">
                     </p>
             
                       
@@ -69,17 +87,20 @@
             </form><br>
             <h1>proveedor</h1>
         <form  method="get" action="/SistemaInventario/ctrlProveedor">
-                    <p>velocidad 
-                        <input type="number" name="velocidad">
+                    <p>nombre Proveedor 
+                        <input type="text" name="nombreProveedor">
                     </p>
-                    <p>marca 
-                        <input type="text" name="marca">
+                    <p>nombreProducto 
+                        <input type="text" name="nombreProducto">
                     </p>
-                    <p>modelo 
-                        <input type="text" name="modelo">
+                    <p>codigoProducto 
+                        <input type="text" name="codigoProducto">
                     </p>
-                    <p>ram 
-                        <input type="number" name="ram" >
+                    <p>cantidad 
+                        <input type="number" name="cantidad" >
+                    </p>
+                    <p>precioCompra 
+                        <input type="number" name="precioCompra">
                     </p>
             
                       
@@ -88,17 +109,23 @@
         </form><br>
         <h1>venta</h1>
         <form  method="get" action="/SistemaInventario/ctrlPersonaCliente">
-                    <p>velocidad 
-                        <input type="number" name="velocidad">
+                    <p>codigoVenta 
+                        <input type="text" name="codigoVenta">
                     </p>
-                    <p>marca 
-                        <input type="text" name="marca">
+                    <p>nombreProducto 
+                        <input type="text" name="nombreProducto">
                     </p>
-                    <p>modelo 
-                        <input type="text" name="modelo">
+                    <p>codigoProducto 
+                        <input type="text" name="codigoProducto">
                     </p>
-                    <p>ram 
-                        <input type="number" name="ram" >
+                    <p>cantidad 
+                        <input type="number" name="cantidad" >
+                    </p>
+                    <p>precioVenta 
+                        <input type="number" name="precioVenta" >
+                    </p>
+                    <p>fechaSalida 
+                        <input type="text" name="fechaSalida">
                     </p>
             
                       

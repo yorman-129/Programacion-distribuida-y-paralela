@@ -53,7 +53,7 @@ public class ctrlVentas extends HttpServlet {
             
             daoventa.createVenta(venta);
             request.setAttribute("venta", venta);
-            request.getRequestDispatcher("mostrarPedido.jsp").forward(request, response);
+            request.getRequestDispatcher("ventas.jsp").forward(request, response);
         }
     }
 

@@ -5,8 +5,7 @@
 --%>
 
 
-<%@page import="co.edu.poli.DTO.PersonaCliente"%>
-<%@page import="co.edu.poli.Controller.ctrlPersonaCliente" %>
+<%@page import="co.edu.poli.DTO.PersonaTrabajador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,8 +14,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%PersonaCliente personacliente = (PersonaCliente)request.getAttribute("dtoPersonalCliente");
-        out.println("<h1> Marca:" + personacliente.getNombre() + "</h1>");
+        <%PersonaTrabajador personaTrabajador = (PersonaTrabajador)request.getAttribute("personatrabajador");
+        out.println("<h2> Nombre" + personaTrabajador.getNombre() +  "<br>" + personaTrabajador.getApellido() + "</h2>");
         %>
     </body>
 </html>
