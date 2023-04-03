@@ -1,13 +1,13 @@
-package com.example.demo;
+package co.edu.poli;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServerApplication {
+public class Version1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ServerApplication.class, args);
+		SpringApplication.run(Version1Application.class, args);
 	}
 
 }
