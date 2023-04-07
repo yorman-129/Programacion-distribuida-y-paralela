@@ -8,22 +8,27 @@ type Rocket {
   rocket_type: String
 }
   
-   type Estudiante{
-    _id:String
-    seudonimo:String
-      nombre: String!
+   type Administrativo{
+    id: Int
+    cargo: String
+    direccion: String
+    nombre_completo: String
+    salario: Int
+    telefeno: String
+    tipo_contrato: Int
+
       
   }
   type Query {
-    estudiantes: [Estudiante]
+    administrativo: [Administrativo]
     rockets: [Rocket]
   }
 `;
 
 const resolvers = {
   Query: {
-    estudiantes:() => fetchEstudiantes(),
-    rockets:() => fetchRockets(),
+    administrativo: () => fetchAdministrativo(),
+    rockets: () => fetchRockets(),
   }
 };
 
@@ -34,9 +39,9 @@ server.listen().then(({ url }) => {
 });
 
 
-function fetchEstudiantes() {
- 
-  return fetch("http://localhost:8080/usuarios")
+function fetchAdministrativo() {
+
+  return fetch("http://localhost:8080/administrative/findAll")
     .then(res => res.json());
 }
 
