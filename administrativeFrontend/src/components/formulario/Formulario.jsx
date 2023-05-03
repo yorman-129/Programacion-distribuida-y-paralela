@@ -1,63 +1,67 @@
 import React, { useState } from 'react'
 
-/*"id": 22431,
-        "nombreCompleto": "milton",
-        "cargo": "rector",
-        "salario": 100.0,
-        "tipoContrato": 142,
-        "telefono": "666444",
-        "direccion": "oooooo" */
-const Formulario = ({onSubmit}) => {
 
-    const [data, setData]=useState({
+const Formulario = ({ onSubmit }) => {
+
+    const [data, setData] = useState({
         id: '',
         nombreCompleto: '',
         cargo: '',
         salario: '',
         tipoContrato: '',
         telefono: '',
-        direccion: '' 
+        direccion: ''
     })
 
-    const handleInput=(event)=>{
-        const nameInput= event.target.name;
+    const handleInput = (event) => {
+        const nameInput = event.target.name;
         setData({
             ...data,
             [nameInput]: event.target.value,
         })
     }
 
-    const handleform=(event)=>{
-        event.preventDefault();
-        console.log(data)
+    const handleClick = () => {
         onSubmit(data)
     }
     return (
         <>
-            <form action="post" onChange={handleform}>
+            <form action="post" >
+                <h2>INGRESAR</h2>
+                <div className="container-item">
 
-                <label htmlFor="" >Id</label>
-                <input type="text" name='id' onChange={handleInput} />
+                    <label htmlFor="" >Nombre Completo</label>
+                    <input type="text" name='nombreCompleto' onChange={handleInput} />
+                </div>
+                <div className="container-item">
 
-                <label htmlFor="" >Nombre Completo</label>
-                <input type="text" name='nombreCompleto' onChange={handleInput} />
+                    <label htmlFor="" >Cargo</label>
+                    <input type="text" name='cargo' onChange={handleInput} />
+                </div>
+                <div className="container-item">
 
-                <label htmlFor="" >Cargo</label>
-                <input type="text" name='cargo' onChange={handleInput} />
+                    <label htmlFor="" >Salario</label>
+                    <input type="text" name='salario' onChange={handleInput} />
+                </div>
+                <div className="container-item">
 
-                <label htmlFor="" >Salario</label>
-                <input type="text" name='salario' onChange={handleInput} />
+                    <label htmlFor="" >Tipo contrato</label>
+                    <input type="text" name='tipoContrato' onChange={handleInput} />
+                </div>
+                <div className="container-item">
 
-                <label htmlFor="" >Tipo contrato</label>
-                <input type="text" name='tipoContrato' onChange={handleInput} />
+                    <label htmlFor="" >Telefono</label>
+                    <input type="text" name='telefono' onChange={handleInput} />
+                </div>
+                <div className="container-item">
 
-                <label htmlFor="" >Telefono</label>
-                <input type="text" name='telefono' onChange={handleInput} />
+                    <label htmlFor="" >Direccion</label>
+                    <input type="text" name='direccion' onChange={handleInput} />
+                </div>
+                <div className="container-item">
 
-                <label htmlFor="" >Direccion</label>
-                <input type="text" name='direccion' onChange={handleInput} />
-
-                <input type="submit" value="ENVIAR" />
+                    <input type="submit" className='buttonForm' value="ENVIAR" onClick={handleClick} />
+                </div>
 
             </form>
         </>

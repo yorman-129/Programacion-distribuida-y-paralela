@@ -1,15 +1,39 @@
 import React from 'react'
 
-const Card = ({nombre,id,direccion,cargo, eliminar}) => {
-
+const Card = ({ nombre, id, direccion, cargo, eliminar }) => {
+const eliminarCard=()=>{
+  eliminar(id)
+}
   return (
-    
+
     <>
-      <li key={id}>{nombre}</li>
-     <p>{cargo}</p>
-     <p>{direccion}</p>
-     <p>{id}</p>
-     <button onClick={eliminar}>eliminar</button>
+      <li key={id}>
+        <p>
+          <strong>
+            Identificación:
+          </strong> {id}
+
+        </p>
+        <p>
+          <strong>
+          Nombre:
+          </strong> {nombre}
+
+        </p>
+        <p>
+          <strong>
+          Cargo:
+          </strong> {cargo}
+
+        </p>
+        <p>
+          <strong>
+          Direccion:
+          </strong> {direccion}
+
+        </p>
+        <button onClick={eliminarCard}>eliminar</button>
+      </li>
     </>
   )
 }
