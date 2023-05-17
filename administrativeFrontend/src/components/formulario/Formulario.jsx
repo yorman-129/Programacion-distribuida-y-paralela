@@ -40,7 +40,7 @@ const Formulario = ({ onSubmit }) => {
                 </div>
                 <div className="container-item">
 
-                    <label htmlFor="" >Salario</label>
+                    <label htmlFor="" >Licitación por venta</label>
                     <input type="text" name='salario' onChange={handleInput} />
                 </div>
                 <div className="container-item">
@@ -55,7 +55,7 @@ const Formulario = ({ onSubmit }) => {
                 </div>
                 <div className="container-item">
 
-                    <label htmlFor="" >Direccion</label>
+                    <label htmlFor="" >Punto de Venta</label>
                     <input type="text" name='direccion' onChange={handleInput} />
                 </div>
                 <div className="container-item">

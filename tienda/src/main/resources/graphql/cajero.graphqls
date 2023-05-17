@@ -1,0 +1,12 @@
+type Cajero {
+    cajeroId: ID!
+    nombreEmpleado: String!
+}
+
+extend type Query{
+    findAllCajeros: [Cajero]!
+}
+
+extend type Mutation{
+    saveCajero: [Cajero]!
+}

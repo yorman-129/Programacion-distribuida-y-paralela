@@ -56,6 +56,7 @@ function App() {
           <h1>Datos</h1>
           <ul>
             {dataAdmin.map(dato => (
+              
               <Card direccion={dato.direccion} cargo={dato.cargo} id={dato.id} eliminar={eliminar} nombre={dato.nombreCompleto} />
             ))}
           </ul>

@@ -28,7 +28,7 @@ const eliminarCard=()=>{
         </p>
         <p>
           <strong>
-          Direccion:
+          Punto de Venta:
           </strong> {direccion}
 
         </p>
