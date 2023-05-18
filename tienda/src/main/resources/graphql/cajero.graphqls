@@ -1,12 +1,12 @@
 type Cajero {
-    cajeroId: ID!
-    nombreEmpleado: String!
+    cajeroId: ID
+    nombreEmpleado: String
 }
 
 extend type Query{
-    findAllCajeros: [Cajero]!
+    findAllCajeros: [Cajero]
 }
 
 extend type Mutation{
-    saveCajero: [Cajero]!
+    saveCajero(nombreEmpleado: String): [Cajero]
 }
