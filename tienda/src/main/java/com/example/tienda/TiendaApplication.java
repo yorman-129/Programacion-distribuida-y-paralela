@@ -22,8 +22,5 @@ public class TiendaApplication {
 		return new queryResolver();
 	}
 
-	@Bean
-	public MutationResolver mutation() {
-		return new MutationResolver();
-	}
+
 }

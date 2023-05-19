@@ -7,6 +7,8 @@ import com.example.tienda.repository.CajeroRepository;
 import com.example.tienda.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
+
 public class queryResolver  implements GraphQLQueryResolver {
     @Autowired
     private ProductoRepository productoRepository;

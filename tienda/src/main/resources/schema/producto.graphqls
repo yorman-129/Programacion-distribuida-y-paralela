@@ -9,5 +9,5 @@ type Query{
 }
 
 type Mutation{
-    saveProducto(nombre: String!, cantidad: Int!): [Producto]!
+    saveProducto(nombre: String!, cantidad: Int!): Producto!
 }

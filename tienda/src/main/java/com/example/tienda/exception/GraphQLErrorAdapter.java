@@ -2,7 +2,6 @@ package com.example.tienda.exception;
 import java.util.List;
 import java.util.Map;
 
-import graphql.ErrorClassification;
 import graphql.ErrorType;
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
@@ -24,9 +23,10 @@ public class GraphQLErrorAdapter implements GraphQLError{
     }
 
     @Override
-    public ErrorClassification getErrorType() {
-        return error.getErrorType();
+    public ErrorType getErrorType() {
+        return null;
     }
+
 
     @Override
     public List<Object> getPath() {

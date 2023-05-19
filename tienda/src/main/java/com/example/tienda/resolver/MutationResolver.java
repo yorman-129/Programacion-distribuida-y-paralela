@@ -8,6 +8,9 @@ import com.example.tienda.repository.CajeroRepository;
 import com.example.tienda.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
+
+
 public class MutationResolver implements GraphQLMutationResolver {
 
 
@@ -18,13 +21,14 @@ public class MutationResolver implements GraphQLMutationResolver {
 
     public Cajero saveCajero(String nombreEmpleado){
         Cajero cajero = Cajero.builder().nombreEmpleado(nombreEmpleado).build();
-        cajero.setNombreEmpleado(nombreEmpleado);
-        Cajero savedCajero = cajeroRepository.save(cajero);
-        return savedCajero;
+        cajeroRepository.save(cajero);
+        return cajero;
     }
 
-    public Producto saveProducto(Producto producto){
-        return productoRepository.save(producto);
+    public Producto saveProducto(String nombre, Integer cantidad){
+        Producto producto= Producto.builder().nombre(nombre).cantidad(cantidad).build();
+         productoRepository.save(producto);
+        return producto;
     }
 
 }
