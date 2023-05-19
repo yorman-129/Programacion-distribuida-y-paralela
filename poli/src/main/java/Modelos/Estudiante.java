@@ -9,7 +9,7 @@ public class Estudiante {
     public Estudiante(String _id, String seudonimo, String nombre) {
         this._id = _id;
         this.seudonimo = seudonimo;
-        this.nombre = nombre;
+        this.nombre = nombre ;
     }
 
     public String getId() {
