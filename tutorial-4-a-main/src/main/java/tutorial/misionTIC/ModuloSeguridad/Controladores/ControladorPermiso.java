@@ -26,7 +26,7 @@ public class ControladorPermiso {
     }
     @GetMapping("{id}")
     public Permiso show(@PathVariable String id){
-        Permiso permisoActual=this.miRepositorioPermiso
+        Permiso permisoActual= this.miRepositorioPermiso
                 .findById(id)
                 .orElse(null);
         return permisoActual;

@@ -1,15 +1,17 @@
 package Modelos;
 
+import org.springframework.data.annotation.Id;
+
 public class Estudiante {
-    @id
-    private  String _id="";
+    @Id
+    private  String id;
     private  String seudonimo="";
     private  String nombre ="";
 
-    public Estudiante(String _id, String seudonimo, String nombre) {
-        this._id = _id;
+    public Estudiante(String id, String seudonimo, String nombre) {
+        this.id = id;
         this.seudonimo = seudonimo;
-        this.nombre = nombre ;
+        this.nombre = nombre;
     }
 
     public String getId() {
